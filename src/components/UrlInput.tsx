@@ -32,7 +32,7 @@ export function UrlInput({ onUrlSubmit }: UrlInputProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2xl mx-auto mt-6">
+    <form onSubmit={handleSubmit} className="max-w-3xl mx-auto mt-6">
       <div className="flex flex-col gap-2">
         {/* Input Field with Download Button Inside */}
         <div className="relative w-full">

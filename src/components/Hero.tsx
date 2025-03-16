@@ -16,15 +16,15 @@ export function Hero({ onUrlSubmit }: HeroProps) {
       </div>
 
       {/* Heading */}
-      <h1 className="text-5xl sm:text-6xl font-extrabold text-gray-900 dark:text-white mt-4">
+      <h1 className="text-6xl font-extrabold text-gray-900 dark:text-white mt-4">
         Download YouTube Videos
       </h1>
-      <h2 className="text-5xl sm:text-6xl font-extrabold text-blue-500 mb-6">
+      <h2 className="text-6xl font-extrabold text-blue-500 mb-6">
         in the simplest way
       </h2>
 
       {/* Subtitle */}
-      <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
+      <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
         Just paste a YouTube URL, select your preferred format and quality, and download your content instantly.
       </p>
 
