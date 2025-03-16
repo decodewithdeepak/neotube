@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neotube - YouTube Playlist Downloader</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <h1>NeoTube Downloader</h1>
+    <form id="download-form">
+        <input type="text" id="video-url" placeholder="Enter video URL" required>
+        <button type="submit">Download</button>
+    </form>
+    <script>
+        document.getElementById('download-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const videoUrl = document.getElementById('video-url').value;
+            if (!videoUrl) {
+                alert('Please enter a video URL');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/download?url=${encodeURIComponent(videoUrl)}`);
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = 'video.mp4';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                } else {
+                    alert('Error downloading video');
+                }
+            } catch (error) {
+                alert('Error downloading video');
+            }
+        });
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
